@@ -5,6 +5,19 @@ What value do you think it offers?
 
 How can you use the staging area to make sure you have one commit per logical
 change?
+After modifying the most recent file, use git status to which file have been modified, and that changes are not staged yet. Use git diff to see the exact change you've introduced since committing. The repository contains serval commits, and each commit contains several files. The staging area is copy of the most recent commit until I ad chagnes to it, so it has those same files with the most recent commit. Finally, the working directory also has the same files in it, but I've made some updates to game.js* . 
+
+Use git diff commitid1 commitid2 to compare two commits
+
+Use git diff                        with no arguments compare working directoty with staging area, this will show ang changes you made that you haven't added to the staging area yet. 
+Use git add game.js Then add the current edited file to staging area
+Use git diff to see the file in staged area is updated
+
+Use git diff --staged to double check that the files I've added are really what I want to put in the commit. 
+
+Use git commit -m "commit message" if this is what I want to commit.  
+
+Use git reset --hard, which discards any changes in either the working directory or the staging area. 
 
 What are some situations when branches would be helpful in keeping your history
 organized? How would branches help?
