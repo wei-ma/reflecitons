@@ -41,6 +41,11 @@ Also, branches are useful to keep things organized when working with others. If 
 
 
 How do the diagrams help you visualize the branch structure?
+It turns out each commit knows about its parent. That is, it stores a reference to the commit that was checked out when it was made. If arrows in the diagram is used to show each commit's parent, and log starts with the current commit or the latest commit of any branch or branches that are specified and traces back until it gets to a commit that doesn't have a parent. Diagrams help to show whcih commit will be listed through git checkout branches. This is important to nderstand the entire detached message. 
+Use git checkout -b new_branch_name
+Equivalent to git branch new_branch_name
+git checkout new_branch_name
+
 
 What is the result of merging two branches together? Why do we represent it in
 the diagram the way we do?
