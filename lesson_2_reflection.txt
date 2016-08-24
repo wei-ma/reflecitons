@@ -49,6 +49,8 @@ git checkout new_branch_name
 
 What is the result of merging two branches together? Why do we represent it in
 the diagram the way we do?
+After the merge, the master branch is updated and point to the coins branch. The combined version is also a commit, that commit store information of both its parents, so I will add arrows ot both. The merge got the content from the coins branch into the master branch, and the new commit is the new tip of the master branch, since master branch is the onegetting updated. After the merge, the master branch will include all the changes that it had before, plus the changes from the coins branch. It sort of like creating a new commit with all the chanes from the coins branch, except that I still have access to each of these old commits. We will be able to reach commits on coins branch through the master after merging. 
+
 
 What are the pros and cons of Git’s automatic merging vs. always doing merges
 manually?
