@@ -5,14 +5,52 @@ What value do you think it offers?
 
 How can you use the staging area to make sure you have one commit per logical
 change?
+After modifying the most recent file, use git status to which file have been modified, and that changes are not staged yet. Use git diff to see the exact change you've introduced since committing. The repository contains serval commits, and each commit contains several files. The staging area is copy of the most recent commit until I ad chagnes to it, so it has those same files with the most recent commit. Finally, the working directory also has the same files in it, but I've made some updates to game.js* . 
 
-What are some situations when branches would be helpful in keeping your history
+Use git diff commitid1 commitid2 to compare two commits
+
+Use git diff                        with no arguments compare working directoty with staging area, this will show ang changes you made that you haven't added to the staging area yet. 
+Use git add game.js Then add the current edited file to staging area
+Use git diff to see the file in staged area is updated
+
+Use git diff --staged to double check that the files I've added are really what I want to put in the commit. 
+
+Use git commit -m "commit message" if this is what I want to commit.  
+
+Use git reset --hard, which discards any changes in either the working directory or the staging area. 
+
+
+What are some situations when branches would be helpful in keeping your history 
 organized? How would branches help?
+Making a straight line of changes makes a lot of sence if you are fixing bugs, adding new features or updating documentation. But what if you wanted to try out a new experimental feature that you're still not sure will work, but you still want to have a working demo just show yor friends when they ask what you're working on? or maybe you are larning italian, and want to make a version of your project for italian speaking people while leaving the native language version intact. In this case, you would probably creating a setting for swithching between the two languages. 
+Git allows you to create labels for your commits.These labels are called branches. In this case, we would have three different branches. 
+First, master. master is the name given to main branch in most Git repositories and every time you create a repository, Git creates a master branch for you. 
+Second branch would probably called italian. 
+Third branch would probaly called exp (experimental feature)
+When you checked out some old commits, you'd get the detached head message? Bassically, at that point, Git was warning you that you were looking at a commit that was not labelled with a branch name. 
+So far, you've always been in a detached head state or on the master branch, which Git creates for you. 
+It is possible to checkout a branch in the same way you checked out commits in the past, except with the hopefully human-readable branch name rather than an unpronounceable series of characters. If you check out a branch, and then make a commit, the branch label automatically updates to the new commit. That branch also stays checked out, so you do not have to check it out again.
+As a matter of termilonogy, we sometimes refer to the current last commit on a branch being the tip of that branch. It ispossible to have multiple labels attachd to a single commit, but making a new commit will only update the branch that you have checked out and leave the others alone. 
+The process of combing two branches is known as merging. And we'll get to that later on in the lesson. 
+
+It helpful to create a new brach when moving on a new piece of work, as a context switching, it helps to switch on to a new feature or correct a bug. 
+It helps you make the project organized when you're sharing that project publicly. Master branch, would be your production quality branch that never breaks, alwyas works. And then you could have a development branch where active work is taking place on your project, and then things like experimental branch or some unique feature branches, those things that you're working on, and you fully expect them to break, and you want to share those with the public, but with the understanding that this isn't production quality work just yet. 
+Branches are also good to collaborate with yourself. When coming across a bug when working on a feature, branches allow me that ability to context switch and get away from the work I'm doing on my feature, go back to where I need to be fix the bug and then compartmentalize that work. Branches are good even you get boared on that feature, and I can switch and do something else right now. 
+
+Also, branches are useful to keep things organized when working with others. If you and your collaborators all make changes on the same branch, you can't easily work on separate featueres simultaneously. A common workflow for people working on projects together, includes making a new branch for every feature or bug-fix, this way, if multiple are working on changes at the same time, they can each ckeck out their branch to continue work after taking a break. Then once a feature or a bug-fix complete, the author can either update master to also point to the tip of the new branch. Or if there have been chages ot master in the mean time, combine it with the current master using gits and merge feature. 
+
 
 How do the diagrams help you visualize the branch structure?
+It turns out each commit knows about its parent. That is, it stores a reference to the commit that was checked out when it was made. If arrows in the diagram is used to show each commit's parent, and log starts with the current commit or the latest commit of any branch or branches that are specified and traces back until it gets to a commit that doesn't have a parent. Diagrams help to show whcih commit will be listed through git checkout branches. This is important to nderstand the entire detached message. 
+Use git checkout -b new_branch_name
+Equivalent to git branch new_branch_name
+git checkout new_branch_name
+
 
 What is the result of merging two branches together? Why do we represent it in
 the diagram the way we do?
+After the merge, the master branch is updated and point to the coins branch. The combined version is also a commit, that commit store information of both its parents, so I will add arrows ot both. The merge got the content from the coins branch into the master branch, and the new commit is the new tip of the master branch, since master branch is the onegetting updated. After the merge, the master branch will include all the changes that it had before, plus the changes from the coins branch. It sort of like creating a new commit with all the chanes from the coins branch, except that I still have access to each of these old commits. We will be able to reach commits on coins branch through the master after merging. 
+
 
 What are the pros and cons of Git’s automatic merging vs. always doing merges
 manually?
