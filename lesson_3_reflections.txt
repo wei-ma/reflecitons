@@ -1,1 +1,3 @@
 When would you want ot create a remote repository rather than keeping all your work local?
+  I would like to create a remote repository when I want to share my work with others, I can keep the part I am still working on and not ready for public private and only share or push the branch which is ready for share to the public repository. I would aslo need a remote repository when I work with other programmers collaboratively on the same project. 
+  
