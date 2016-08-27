@@ -1,6 +1,10 @@
 When would you want ot create a remote repository rather than keeping all your work local?
-  I would like to create a remote repository when I want to share my work with others, I can keep the part I am still working on and not ready for public private and only share or push the branch which is ready for share to the public repository. I would aslo need a remote repository when I work with other programmers collaboratively on the same project. 
+ 	I would like to create a remote repository when I want to share my work with others, I can keep the part I am still working on and not ready for public private and only share or push the branch which is ready for share to the public repository. I would aslo need a remote repository when I work with other programmers collaboratively on the same project. 
   
 Describe the differences between forks, clones, and branches. When would you use one instead of another?
 	Forks is a feature of github to clone a someone's repository to your own account in github. You can push an pull commits from this fork and the afer pull commits from the fork, the fork becomes the origin or remote repository of your local repository. Changes made in the fork will affect or appear in the someone else's original repository. 
 	clones are copy and repositories from github or from other local positions. Clones copy not only all files in that repoitory, but also all history commits in the repository. Branches are created within the same repository, when the new commits are made and there is parents for them to recall. Branches are labels for commits. 
+
+What is the benefit of having a copy of the last known of the remote stored locally?
+	Use git fetch will update the origin/master branch sync with the remote repositories. If you will be offline a while, you can get access to most recent version of the remote repository by updating the local copy of the remote version. You can also fix the conflict by git diff origin/master master before merging origin/master and master locally. After merging, you can use git push the sync the remote erpository in github. 
+	
